@@ -10,11 +10,26 @@ function sign_Up({ email, name, image, password }) {
 
 function sendLogin({ email, password}) {
     const promise = axios.post(`${AUTORIZATION}/login`, { email, password })
-    return promise;
+    return promise.then((response) => {
+        localStorage.setItem("User_Info", JSON.stringify(response.data))
+
+    });
+}
+
+function createHeaders() {
+  const auth = localStorage.getItem("User_Info");
+  const config = {
+    headers: {
+      Authorization: `Bearer ${auth.token}`
+    }
+  };
+
+  return config;
 }
 
 function createHabit(body) {
-    const promise = axios.post(`${HABIT_URL}`, body)
+    const config = createHeaders();
+    const promise = axios.post(`${HABIT_URL}`, body, config)
     return promise;
 }
 

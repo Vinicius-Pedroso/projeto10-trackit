@@ -15,7 +15,7 @@ export default function Sign({}) {
     return (
         <Container>
             <div>
-                <img src="/projeto10-trackit\public\img\logo.png" />
+                <img src=".\img\logo.png" />
                 <Boxinfo type="text" placeholder="email" value={email} onChange={e => setEmail(e.target.value)}>
                 </Boxinfo>
                 <Boxinfo input type="text" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)}>

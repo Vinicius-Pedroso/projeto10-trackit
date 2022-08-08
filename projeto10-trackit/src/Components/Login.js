@@ -1,19 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sendLogin } from './APIfunctions';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 //import { Audio } from  'react-loader-spinner'
 
 export default function Login() {
 
+    const AUTORIZATION = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+    function sendLogin({ email, password}) {
+        const promise = axios.post(`${AUTORIZATION}/login`, { email, password })
+        return promise.then((response) => {
+            localStorage.setItem("User_Info", JSON.stringify(response.data))
+    
+        });
+    }
+    
+    function createHeaders() {
+      const auth = localStorage.getItem("User_Info");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${auth.token}`
+        }
+      };
+    
+      return config;
+    }
+    
+
 
     return (
         <Container>
             <div>
-                <img src="/projeto10-trackit\public\img\logo.png"/>
+                <img src=".\img\logo.png"/>
                 <Boxinfo type="text" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} >
                 </Boxinfo>
                 <Boxinfo input type="text" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)}>
@@ -29,6 +51,7 @@ export default function Login() {
         </Container>
     );
 }
+
 
 const Container = styled.div`
     display:flex;
