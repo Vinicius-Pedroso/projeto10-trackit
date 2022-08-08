@@ -8,7 +8,7 @@ export default function Login() {
         <Container>
             <div>
                 
-                <img src="img/logo.png"/>
+                <img src="/projeto10-trackit\public\img\logo.png"/>
                 <Boxinfo type="text" placeholder="email" id="emaillogin userInput">
                 </Boxinfo>
                 <Boxinfo input type="text" placeholder="senha" id="passwordlogin userInput">
@@ -16,7 +16,9 @@ export default function Login() {
                 <Enter >
                     <p>Entrar</p>
                 </Enter>
-                <h1 ><Link to="/Signup">Não tem uma conta? Cadastre-se!</Link></h1>
+                <h1 >
+                <Link to="/Sign">Não tem uma conta? Cadastre-se!</Link>
+                </h1>
 
             </div>
         </Container>

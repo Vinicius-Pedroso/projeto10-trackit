@@ -1,0 +1,32 @@
+import axios from 'axios';
+
+const HabitToday = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today';
+const Habit_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
+const HabitDaily = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/history/daily';
+
+function deleteHabit(body) {
+    const promise = axios.post(`${Habit_URL}/${habit_id}`, body)
+    return promise;
+}
+
+function getHabitToday(){
+    const promise = axios.get(`${HabitToday}`)
+    return promise;
+}
+
+function HabitCheck (body){
+    const promise = axios.post(`${Habit_URL}/${habit_id}/check`, body)
+    return promise;
+}
+
+function HabitUncheck (body){
+    const promise = axios.post(`${Habit_URL}/${habit_id}/uncheck`, body)
+    return promise;
+}
+
+function getHabitDaily (){
+    const promise = axios.get(`${HabitDaily}`)
+    return promise;
+}
+
+export { deleteHabit, getHabitToday, HabitCheck, HabitUncheck, getHabitDaily};

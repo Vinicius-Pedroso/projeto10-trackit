@@ -6,7 +6,7 @@ export default function Header() {
         <>
             <Headerr>
                 <h1>TrackIt</h1>
-                <img src="/projeto10-trackit\public\img\Rectangle14.png" />
+                <img src="/public/img/logo.png" />
             </Headerr>
         </>
     );

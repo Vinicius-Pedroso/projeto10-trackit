@@ -4,16 +4,23 @@ import styled from 'styled-components';
 export default function Footer() {
     return (
         <>
-            <Foot>
-                <p>Hábito</p>
-                <p>Histórico</p>
-            </Foot>
-            <Footimg>
-                <img src="/projeto10-trackit/public/img/logohoje.png" />
-            </Footimg>
+            <Wrapper>
+                <Foot>
+                    <p>Hábito</p>
+                    <p>Histórico</p>
+                </Foot>
+                <Footimg>
+                    <img src="/projeto10-trackit/public/img/logohoje.png" />
+                </Footimg>
+            </Wrapper>
+
         </>
     );
 }
+
+const Wrapper = styled.div`
+    margin-top: 80px;
+`
 
 const Foot = styled.div`
     bottom: 0px;

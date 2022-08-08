@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
-export default function Signup({}) {
+export default function Sign({}) {
     return (
         <Container>
             <div>
@@ -17,7 +18,9 @@ export default function Signup({}) {
                 <Enter>
                     <p >Cadastrar</p>
                 </Enter>
-                <h1 >Já tem uma conta? Faça login!</h1>
+                <h1 >
+                <Link to="/">Já tem uma conta? Faça login!</Link>
+                </h1>
             </div>
         </Container>
     );
