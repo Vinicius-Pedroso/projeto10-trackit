@@ -1,8 +1,28 @@
 import axios from 'axios';
 
-const HabitToday = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today';
+
+const Autorization = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
 const Habit_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
-const HabitDaily = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/history/daily';
+
+function sign_Up(body) {
+    const promise = axios.post(`${Autorization}/sign-up`, body)
+    return promise;
+}
+
+function sendLogin(body) {
+    const promise = axios.post(`${Autorization}/login`, body)
+    return promise;
+}
+
+function createHabit(body) {
+    const promise = axios.post(`${Habit_URL}`, body)
+    return promise;
+}
+
+function listHabit(body) {
+    const promise = axios.get(`${Habit_URL}`, body)
+    return promise;
+}
 
 function deleteHabit(body) {
     const promise = axios.post(`${Habit_URL}/${habit_id}`, body)
@@ -10,7 +30,7 @@ function deleteHabit(body) {
 }
 
 function getHabitToday(){
-    const promise = axios.get(`${HabitToday}`)
+    const promise = axios.get(`${Habit_URL}/today`)
     return promise;
 }
 
@@ -25,8 +45,8 @@ function HabitUncheck (body){
 }
 
 function getHabitDaily (){
-    const promise = axios.get(`${HabitDaily}`)
+    const promise = axios.get(`${Habit_URL}/history/daily`)
     return promise;
 }
 
-export { deleteHabit, getHabitToday, HabitCheck, HabitUncheck, getHabitDaily};
+export { sign_Up, sendLogin, createHabit, listHabit, deleteHabit, getHabitToday, HabitCheck, HabitUncheck, getHabitDaily};
