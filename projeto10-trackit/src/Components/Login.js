@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { sendLogin } from './APIfunctions';
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
 
-
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
     return (
         <Container>
             <div>
-                
                 <img src="/projeto10-trackit\public\img\logo.png"/>
-                <Boxinfo type="text" placeholder="email" id="emaillogin userInput">
+                <Boxinfo type="text" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} >
                 </Boxinfo>
-                <Boxinfo input type="text" placeholder="senha" id="passwordlogin userInput">
+                <Boxinfo input type="text" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)}>
                 </Boxinfo>
-                <Enter >
+                <Enter onClick={sendLogin}>
                     <p>Entrar</p>
                 </Enter>
                 <h1 >

@@ -9,9 +9,10 @@ function sign_Up(body) {
     return promise;
 }
 
-function sendLogin(body) {
-    const promise = axios.post(`${Autorization}/login`, body)
+function sendLogin({ email, password}) {
+    const promise = axios.post(`${Autorization}/login`, { email, password })
     return promise;
+
 }
 
 function createHabit(body) {
