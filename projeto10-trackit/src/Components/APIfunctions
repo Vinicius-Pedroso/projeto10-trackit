@@ -1,53 +1,51 @@
 import axios from 'axios';
 
+const AUTORIZATION = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
+const HABIT_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
 
-const Autorization = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
-const Habit_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
-
-function sign_Up(body) {
-    const promise = axios.post(`${Autorization}/sign-up`, body)
+function sign_Up({ email, name, image, password }) {
+    const promise = axios.post(`${AUTORIZATION}/sign-up`, { email, name, image, password })
     return promise;
 }
 
 function sendLogin({ email, password}) {
-    const promise = axios.post(`${Autorization}/login`, { email, password })
+    const promise = axios.post(`${AUTORIZATION}/login`, { email, password })
     return promise;
-
 }
 
 function createHabit(body) {
-    const promise = axios.post(`${Habit_URL}`, body)
+    const promise = axios.post(`${HABIT_URL}`, body)
     return promise;
 }
 
 function listHabit(body) {
-    const promise = axios.get(`${Habit_URL}`, body)
+    const promise = axios.get(`${HABIT_URL}`, body)
     return promise;
 }
 
 function deleteHabit(body) {
-    const promise = axios.post(`${Habit_URL}/${habit_id}`, body)
+    const promise = axios.post(`${HABIT_URL}/${habit_id}`, body)
     return promise;
 }
 
 function getHabitToday(){
-    const promise = axios.get(`${Habit_URL}/today`)
+    const promise = axios.get(`${HABIT_URL}/today`)
     return promise;
 }
 
-function HabitCheck (body){
-    const promise = axios.post(`${Habit_URL}/${habit_id}/check`, body)
+function habitCheck (body){
+    const promise = axios.post(`${HABIT_URL}/${habit_id}/check`, body)
     return promise;
 }
 
-function HabitUncheck (body){
-    const promise = axios.post(`${Habit_URL}/${habit_id}/uncheck`, body)
+function habitUncheck (body){
+    const promise = axios.post(`${HABIT_URL}/${habit_id}/uncheck`, body)
     return promise;
 }
 
 function getHabitDaily (){
-    const promise = axios.get(`${Habit_URL}/history/daily`)
+    const promise = axios.get(`${HABIT_URL}/history/daily`)
     return promise;
 }
 
-export { sign_Up, sendLogin, createHabit, listHabit, deleteHabit, getHabitToday, HabitCheck, HabitUncheck, getHabitDaily};
+export { sign_Up, sendLogin, createHabit, listHabit, deleteHabit, getHabitToday, habitCheck, habitUncheck, getHabitDaily};

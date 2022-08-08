@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function Footer() {
+
+    const percentage = 66;
+
     return (
         <>
             <Wrapper>
@@ -10,7 +15,7 @@ export default function Footer() {
                     <p>Histórico</p>
                 </Foot>
                 <Footimg>
-                    <img src="/projeto10-trackit/public/img/logohoje.png" />
+                    <CircularProgressbar value={percentage} text={`${percentage}%`} />;
                 </Footimg>
             </Wrapper>
 
