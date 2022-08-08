@@ -1,21 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { sendLogin } from './APIfunctions';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+//import { Link, useNavigate } from "react-router-dom";
+//import axios from 'axios';
 //import { Audio } from  'react-loader-spinner'
 
 export default function Login() {
 
-    const AUTORIZATION = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
-	const [email, setEmail] = useState("");
+    //const HABIT_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
+    //  const AUTORIZATION = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
+    const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-    function sendLogin({ email, password}) {
-        const promise = axios.post(`${AUTORIZATION}/login`, { email, password })
-        return promise.then((response) => {
-            localStorage.setItem("User_Info", JSON.stringify(response.data))
-    
+    /*function sendLogin({ email, password}) {
+      const promise = axios.post(`${AUTORIZATION}/login`, { email, password })
+      return promise.then((response) => {
+           localStorage.setItem("User_Info", JSON.stringify(response.data))
         });
     }
     
@@ -24,13 +26,10 @@ export default function Login() {
       const config = {
         headers: {
           Authorization: `Bearer ${auth.token}`
-        }
-      };
-    
-      return config;
-    }
-    
-
+            }
+        };
+        return config;
+    }*/
 
     return (
         <Container>
@@ -40,14 +39,18 @@ export default function Login() {
                 </Boxinfo>
                 <Boxinfo input type="text" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)}>
                 </Boxinfo>
-                <Enter onClick={() => sendLogin({email, password})}>
+                <Enter onClick={sendLogin({email, password})}>
                     <p>Entrar</p>
                 </Enter>
                 <h1 >
                 <Link to="/Sign">Não tem uma conta? Cadastre-se!</Link>
                 </h1>
-
             </div>
+            {/*{token ? (
+                <Habits />
+            ) : (
+                "" alert("Login não foi efetuado");
+            )}*/}
         </Container>
     );
 }
@@ -107,8 +110,3 @@ const Enter = styled.div`
     border-color: #52B6FF;
     color: white;
 `
-//request.then(response => {
-//    setToken(response.data.token);
-//});
-
-

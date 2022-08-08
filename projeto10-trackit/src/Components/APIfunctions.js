@@ -34,7 +34,8 @@ function createHabit(body) {
 }
 
 function listHabit(body) {
-    const promise = axios.get(`${HABIT_URL}`, body)
+    const config = createHeaders();
+    const promise = axios.get(`${HABIT_URL}`, body, config)
     return promise;
 }
 

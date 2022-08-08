@@ -1,0 +1,33 @@
+//import { useState } from "react";
+//import { Link, useNavigate } from "react-router-dom";
+//import axios from 'axios';
+//import { Audio } from  'react-loader-spinner'
+
+
+//const HABIT_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
+//  const AUTORIZATION = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth';
+//	const [email, setEmail] = useState("");
+//	const [password, setPassword] = useState("");
+//
+//  function sendLogin({ email, password}) {
+//      const promise = axios.post(`${AUTORIZATION}/login`, { email, password })
+//      return promise.then((response) => {
+//           localStorage.setItem("User_Info", JSON.stringify(response.data))
+//        });
+//    }
+//    
+//    function createHeaders() {
+//      const auth = localStorage.getItem("User_Info");
+//      const config = {
+//        headers: {
+//          Authorization: `Bearer ${auth.token}`
+//            }
+//        };
+//        return config;
+//    }
+
+/*{token ? (
+                <Habits />
+            ) : (
+                "" alert("Login não foi efetuado");
+            )}*/
