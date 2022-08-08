@@ -24,7 +24,7 @@ export default function Sign({}) {
                 </Boxinfo>
                 <Boxinfo input type="text" placeholder="foto" value={image} onChange={e => setImage(e.target.value)}>
                 </Boxinfo>
-                <Enter onClick={sign_Up}>
+                <Enter onClick={() => sign_Up({email, password, name, image})}>
                     <p >Cadastrar</p>
                 </Enter>
                 <h1 >

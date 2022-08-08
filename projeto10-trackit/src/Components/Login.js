@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sendLogin } from './APIfunctions';
+import { sendLogin } from './APIfunctions.js';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 //import { Audio } from  'react-loader-spinner'
@@ -18,7 +18,7 @@ export default function Login() {
                 </Boxinfo>
                 <Boxinfo input type="text" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)}>
                 </Boxinfo>
-                <Enter onClick={sendLogin}>
+                <Enter onClick={() => sendLogin({email, password})}>
                     <p>Entrar</p>
                 </Enter>
                 <h1 >
@@ -87,3 +87,5 @@ const Enter = styled.div`
 //request.then(response => {
 //    setToken(response.data.token);
 //});
+
+

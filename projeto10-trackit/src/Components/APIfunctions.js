@@ -23,7 +23,7 @@ function listHabit(body) {
     return promise;
 }
 
-function deleteHabit(body) {
+function deleteHabit(habit_id, body) {
     const promise = axios.post(`${HABIT_URL}/${habit_id}`, body)
     return promise;
 }
@@ -33,12 +33,12 @@ function getHabitToday(){
     return promise;
 }
 
-function habitCheck (body){
+function habitCheck (habit_id, body){
     const promise = axios.post(`${HABIT_URL}/${habit_id}/check`, body)
     return promise;
 }
 
-function habitUncheck (body){
+function habitUncheck (habit_id, body){
     const promise = axios.post(`${HABIT_URL}/${habit_id}/uncheck`, body)
     return promise;
 }
