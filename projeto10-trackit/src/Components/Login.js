@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sendLogin } from './APIfunctions.js';
+import { sendLogin } from './APIfunctions';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 //import { Audio } from  'react-loader-spinner'

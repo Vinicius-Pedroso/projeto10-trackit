@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Habitopronto() {
+export default function HabitReady() {
     return (
         <>
             <Feitohabito>
                 <Flexx>
                     <h1>Nome do hábito</h1>
-                    <ion-icon name="trash-outline"></ion-icon>
                 </Flexx>
                 <Dias>
                     <Dia>D</Dia>

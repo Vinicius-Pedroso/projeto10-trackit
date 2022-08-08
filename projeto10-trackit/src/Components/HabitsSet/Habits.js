@@ -1,17 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
-import Habitopronto from './Habitopronto';
+import { Link } from "react-router-dom";
+import { listHabit } from '../APIfunctions';
+import { useState, useEffect } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import NoHabits from './NoHabits';
+import HabitReady from './HabitReady';
 
-export default function Habitos({setParte}) {
+export default function Habits() {
+
+    const [habitsList, setHabitsList] = useState([]);
+
+    useEffect(() => {
+        listHabit().then((res) => setHabitsList(res.data));
+    }, []);
+
+    console.log(habitsList);
+
     return (
         <>
+            <Header />
             <Divtemp>
                 <span>
                     <p>Meus hábitos</p>
-                    <Plus onClick={() => setParte(1)}>+</Plus>
+                    <Plus ><Link to="/MakeHabit">+</Link></Plus>
                 </span>
+                {(habitsList === null) && <NoHabits />}
+                {(habitsList !== null) && <HabitReady />}
             </Divtemp>
-            {/*<Habitopronto/>*/}
+            <Footer />
         </>
     );
 }
